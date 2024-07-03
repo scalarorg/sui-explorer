@@ -33,7 +33,7 @@
     "@mysten/core": "workspace:*",
     "@mysten/dapp-kit": "^0.12.9",
     "@mysten/icons": "workspace:*",
-    "@mysten/sui.js": "^0.51.2",
+    "@mysten/sui.js": "0.54.1",
     "@mysten/ui": "workspace:*",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-collapsible": "^1.0.3",

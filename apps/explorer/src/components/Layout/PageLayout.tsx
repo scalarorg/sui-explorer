@@ -192,11 +192,11 @@ export function PageLayout({ gradient, content, loading, isError }: PageLayoutPr
 	const [network] = useNetworkContext();
 	const { request } = useAppsBackend();
 	const outageOverride = useFeatureIsOn('network-outage-override');
-	const { suiscanUrl, suivisionUrl } = useRedirectExplorerUrl();
-	const {
-		checked,
-		preference,
-	} = usePreference();
+	// const { suiscanUrl, suivisionUrl } = useRedirectExplorerUrl();
+	// const {
+	// 	checked,
+	// 	preference,
+	// } = usePreference();
 
 	const { data } = useQuery({
 		queryKey: ['apps-backend', 'monitor-network'],
@@ -215,16 +215,16 @@ export function PageLayout({ gradient, content, loading, isError }: PageLayoutPr
 	const headerRef = useRef<HTMLElement | null>(null);
 	const [headerHeight] = useElementDimensions(headerRef, DEFAULT_HEADER_HEIGHT);
 
-	useEffect(() => {
-		if (checked && preference) {
-			const redirectUrl = preference === RedirectExplorer.SUISCAN ? suiscanUrl : suivisionUrl;
-			ampli.redirectToExternalExplorer({
-				name: preference,
-				url: redirectUrl,
-			});
-			window.location.href = redirectUrl;
-		}
-	}, [checked, preference, suiscanUrl, suivisionUrl]);
+	// useEffect(() => {
+	// 	if (checked && preference) {
+	// 		const redirectUrl = preference === RedirectExplorer.SUISCAN ? suiscanUrl : suivisionUrl;
+	// 		ampli.redirectToExternalExplorer({
+	// 			name: preference,
+	// 			url: redirectUrl,
+	// 		});
+	// 		window.location.href = redirectUrl;
+	// 	}
+	// }, [checked, preference, suiscanUrl, suivisionUrl]);
 
 
 	const networkDegradeBannerCopy =
@@ -232,15 +232,15 @@ export function PageLayout({ gradient, content, loading, isError }: PageLayoutPr
 			? 'Sui Explorer (Testnet) is currently under-going maintenance. Some data may be incorrect or missing.'
 			: "The explorer is running slower than usual. We're working to fix the issue and appreciate your patience.";
 
-	if (checked && preference) {
-		return (
-			<div className="h-full w-full relative">
-				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-					<LoadingIndicator />
-				</div>
-			</div>
-		)
-	}
+	// if (checked && preference) {
+	// 	return (
+	// 		<div className="h-full w-full relative">
+	// 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+	// 				<LoadingIndicator />
+	// 			</div>
+	// 		</div>
+	// 	)
+	// }
 
 	return (
 		<div className="relative min-h-screen w-full">
@@ -293,7 +293,8 @@ export function PageLayout({ gradient, content, loading, isError }: PageLayoutPr
 				) : null}
 				{!loading && (
 					<section className="mx-auto max-w-[1440px] px-5 pb-20 pt-10 sm:py-8 md:p-10 md:pb-25">
-						{enableExplorerRedirect ? <RedirectContent /> : content}
+						{/* {enableExplorerRedirect ? <RedirectContent /> : content} */}
+						{ content }
 					</section>
 				)}
 			</main>

@@ -8,8 +8,8 @@ import { type ReactNode } from 'react';
 export type DropdownMenuProps = {
 	content: ReactNode;
 	trigger: ReactNode;
-	side?: RadixDropdownMenu.MenuContentProps['side'];
-	align?: RadixDropdownMenu.MenuContentProps['align'];
+	side?: RadixDropdownMenu.DropdownMenuContentProps['side'];
+	align?: RadixDropdownMenu.DropdownMenuContentProps['align'];
 } & Omit<RadixDropdownMenu.DropdownMenuProps, 'className' | 'asChild'>;
 
 export function DropdownMenu({

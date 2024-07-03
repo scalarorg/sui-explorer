@@ -1,0 +1,40 @@
+version: "3"
+services:
+  scalar-explorer-dev:
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+    image: scalar-explorer-dev
+    container_name: scalar-explorer-dev
+    volumes:
+      - ./apps:/sui-explorer/apps:rw
+      - ./package.json:/sui-explorer/package.json
+      - ./pnpm-workspace.yaml:/sui-explorer/pnpm-workspace.yaml
+      - ./node_modules:/sui-explorer/node_modules
+    working_dir: /sui-explorer
+    command: sleep infinity
+    restart: on-failure
+    ports:
+     - 3001:3000
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "1g"
+
+  # scalar-explorer-prod:
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile  
+  #   image: scalar/explorer:latest
+  #   hostname: explorer
+  #   container_name: scalar-explorer-prod
+  #   #command: sleep infinity
+  #   ports:
+  #     - 8080:80
+  #   restart: no
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-file: "10"
+  #       max-size: "1g"

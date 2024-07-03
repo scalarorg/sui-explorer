@@ -13,9 +13,9 @@ export enum Network {
 
 export const NetworkConfigs: Record<Network, { url: string }> = {
 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
-	[Network.DEVNET]: { url: 'https://sui-devnet.mystenlabs.com/json-rpc' },
-	[Network.TESTNET]: { url: 'https://sui-testnet.mystenlabs.com/json-rpc' },
-	[Network.MAINNET]: { url: 'https://sui-mainnet.mystenlabs.com/json-rpc' },
+	[Network.DEVNET]: { url: 'https://devnet.scalar.org/json-rpc' },
+	[Network.TESTNET]: { url: 'https://testnet.scalar.org/json-rpc' },
+	[Network.MAINNET]: { url: 'https://mainnet.scalar.org/json-rpc' },
 };
 
 const defaultClientMap: Map<Network | string, SuiClient> = new Map();
