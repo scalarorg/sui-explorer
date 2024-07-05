@@ -3,6 +3,7 @@
 
 import { SentryHttpTransport } from '@mysten/core';
 import { SuiClient, SuiHTTPTransport, getFullnodeUrl } from '@mysten/sui.js/client';
+import { DEFAULT_DEVNET_RPC_URL, DEFAULT_TESTNET_RPC_URL, DEFAULT_MAINNET_RPC_URL} from '../../context'
 
 export enum Network {
 	LOCAL = 'LOCAL',
@@ -10,10 +11,6 @@ export enum Network {
 	TESTNET = 'TESTNET',
 	MAINNET = 'MAINNET',
 }
-
-export const DEFAULT_MAINNET_RPC_URL = import.meta.env.VITE_MAINNET_RPC_URL || "https://mainnet.scalar.org/json-rpc";
-export const DEFAULT_TESTNET_RPC_URL = import.meta.env.VITE_MAINNET_RPC_URL || "https://testnet.scalar.org/json-rpc";
-export const DEFAULT_DEVNET_RPC_URL = import.meta.env.VITE_DEVNET_RPC_URL || "https://devnet.scalar.org/json-rpc";
 
 export const NetworkConfigs: Record<Network, { url: string }> = {
 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
