@@ -3,7 +3,7 @@
 
 import { SentryHttpTransport } from '@mysten/core';
 import { SuiClient, SuiHTTPTransport, getFullnodeUrl } from '@mysten/sui.js/client';
-
+import { DEFAULT_MAINNET_RPC_URL, DEFAULT_TESTNET_RPC_URL, DEFAULT_DEVNET_RPC_URL } from '../../context';
 export enum Network {
 	LOCAL = 'LOCAL',
 	DEVNET = 'DEVNET',
@@ -13,9 +13,9 @@ export enum Network {
 
 export const NetworkConfigs: Record<Network, { url: string }> = {
 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
-	[Network.DEVNET]: { url: 'https://devnet.scalar.org/json-rpc' },
-	[Network.TESTNET]: { url: 'https://testnet.scalar.org/json-rpc' },
-	[Network.MAINNET]: { url: 'https://mainnet.scalar.org/json-rpc' },
+	[Network.DEVNET]: { url: DEFAULT_DEVNET_RPC_URL },
+	[Network.TESTNET]: { url: DEFAULT_TESTNET_RPC_URL },
+	[Network.MAINNET]: { url: DEFAULT_MAINNET_RPC_URL },
 };
 
 const defaultClientMap: Map<Network | string, SuiClient> = new Map();
