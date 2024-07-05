@@ -10,10 +10,6 @@ import { Network } from './utils/api/DefaultRpcClient';
 import { growthbook } from './utils/growthbook';
 import { queryClient } from './utils/queryClient';
 
-export const DEFAULT_MAINNET_RPC_URL = import.meta.env.VITE_MAINNET_RPC_URL || "https://mainnet.scalar.org/json-rpc";
-export const DEFAULT_TESTNET_RPC_URL = import.meta.env.VITE_MAINNET_RPC_URL || "https://testnet.scalar.org/json-rpc";
-export const DEFAULT_DEVNET_RPC_URL = import.meta.env.VITE_DEVNET_RPC_URL || "https://devnet.scalar.org/json-rpc";
-
 export const DEFAULT_NETWORK =
 	import.meta.env.VITE_NETWORK || (import.meta.env.DEV ? Network.LOCAL : Network.MAINNET);
 
