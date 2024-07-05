@@ -12,11 +12,18 @@ export enum Network {
 	MAINNET = 'MAINNET',
 }
 
+// export const NetworkConfigs: Record<Network, { url: string }> = {
+// 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
+// 	[Network.DEVNET]: { url: DEFAULT_DEVNET_RPC_URL },
+// 	[Network.TESTNET]: { url: DEFAULT_TESTNET_RPC_URL },
+// 	[Network.MAINNET]: { url: DEFAULT_MAINNET_RPC_URL },
+// };
+
 export const NetworkConfigs: Record<Network, { url: string }> = {
 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
-	[Network.DEVNET]: { url: DEFAULT_DEVNET_RPC_URL },
-	[Network.TESTNET]: { url: DEFAULT_TESTNET_RPC_URL },
-	[Network.MAINNET]: { url: DEFAULT_MAINNET_RPC_URL },
+	[Network.DEVNET]: { url: "http://192.168.1.254:8080" },
+	[Network.TESTNET]: { url: "http://192.168.1.254:8080" },
+	[Network.MAINNET]: { url: "http://192.168.1.254:8080" },
 };
 
 const defaultClientMap: Map<Network | string, SuiClient> = new Map();
