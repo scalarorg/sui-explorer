@@ -3,8 +3,9 @@
 
 import { SentryHttpTransport } from '@mysten/core';
 import { SuiClient, SuiHTTPTransport, getFullnodeUrl } from '@mysten/sui.js/client';
-import { DEFAULT_DEVNET_RPC_URL, DEFAULT_TESTNET_RPC_URL, DEFAULT_MAINNET_RPC_URL} from '../../context'
-
+const DEFAULT_MAINNET_RPC_URL = import.meta.env.VITE_MAINNET_RPC_URL || "https://mainnet.scalar.org/json-rpc";
+const DEFAULT_TESTNET_RPC_URL = import.meta.env.VITE_TESTNET_RPC_URL || "https://testnet.scalar.org/json-rpc";
+const DEFAULT_DEVNET_RPC_URL = import.meta.env.VITE_DEVNET_RPC_URL || "https://devnet.scalar.org/json-rpc";
 export enum Network {
 	LOCAL = 'LOCAL',
 	DEVNET = 'DEVNET',
@@ -12,18 +13,11 @@ export enum Network {
 	MAINNET = 'MAINNET',
 }
 
-// export const NetworkConfigs: Record<Network, { url: string }> = {
-// 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
-// 	[Network.DEVNET]: { url: DEFAULT_DEVNET_RPC_URL },
-// 	[Network.TESTNET]: { url: DEFAULT_TESTNET_RPC_URL },
-// 	[Network.MAINNET]: { url: DEFAULT_MAINNET_RPC_URL },
-// };
-
 export const NetworkConfigs: Record<Network, { url: string }> = {
 	[Network.LOCAL]: { url: getFullnodeUrl('localnet') },
-	[Network.DEVNET]: { url: "http://192.168.1.254:8080" },
-	[Network.TESTNET]: { url: "http://192.168.1.254:8080" },
-	[Network.MAINNET]: { url: "http://192.168.1.254:8080" },
+	[Network.DEVNET]: { url: DEFAULT_DEVNET_RPC_URL },
+	[Network.TESTNET]: { url: DEFAULT_TESTNET_RPC_URL },
+	[Network.MAINNET]: { url: DEFAULT_MAINNET_RPC_URL },
 };
 
 const defaultClientMap: Map<Network | string, SuiClient> = new Map();
