@@ -3,6 +3,9 @@
 
 import { SocialDiscord24, SocialLinkedin24, SocialTwitter24 } from '@mysten/icons';
 import { type ReactNode } from 'react';
+import { ReactComponent as Telegram } from '../../assets/telegram.svg';
+import { ReactComponent as X } from '../../assets/x.svg';
+import { ReactComponent as Discord } from '../../assets/discord.svg';
 
 type FooterItem = {
 	category: string;
@@ -15,46 +18,48 @@ function FooterIcon({ children }: { children: ReactNode }) {
 }
 
 export const footerLinks = [
-	{ title: 'Blog', href: 'https://mystenlabs.com/blog' },
 	{
-		title: 'Whitepaper',
-		href: 'https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf',
+		title: 'Website',
+		href: 'https://scalar.org/',
+	},
+	{
+		title: 'Blog',
+		href: 'https://scalarprotocolnews.substack.com/',
 	},
 	{
 		title: 'Docs',
-		href: 'https://docs.mystenlabs.com',
+		href: 'https://scalar.gitbook.io/scalar',
 	},
 	{
 		title: 'GitHub',
-		href: 'https://github.com/MystenLabs',
+		href: 'https://github.com/scalarorg/',
 	},
-	{ title: 'Press', href: 'https://mystenlabs.com/#community' },
 ];
 
 export const socialLinks = [
 	{
 		children: (
 			<FooterIcon>
-				<SocialDiscord24 />
+				<Telegram />
 			</FooterIcon>
 		),
-		href: 'https://discord.gg/BK6WFhud',
+		href: 'https://t.me/scalarchat',
 	},
 	{
 		children: (
 			<FooterIcon>
-				<SocialTwitter24 />
+				<Discord />
 			</FooterIcon>
 		),
-		href: 'https://twitter.com/Mysten_Labs',
+		href: 'https://discord.com/invite/wzzYhgCggD',
 	},
 	{
 		children: (
 			<FooterIcon>
-				<SocialLinkedin24 />
+				<X />
 			</FooterIcon>
 		),
-		href: 'https://www.linkedin.com/company/mysten-labs/',
+		href: 'https://x.com/scalarprotocol',
 	},
 ];
 

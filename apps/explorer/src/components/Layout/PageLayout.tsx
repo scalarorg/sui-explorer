@@ -23,6 +23,7 @@ import {ArrowRight12, Sui, SuiLogoTxt} from '@mysten/icons';
 import {useRedirectExplorerUrl} from '~/hooks/useRedirectExplorerUrl';
 import {ampli} from '~/utils/analytics/ampli';
 import {CheckboxRedirectPreference, RedirectExplorer, usePreference} from "~/components/CheckboxRedirectPreference";
+import { ReactComponent as ScalarWhite } from '../../assets/logo.svg';
 
 export type PageLayoutProps = {
 	gradient?: {
@@ -158,32 +159,43 @@ export function RedirectHeader() {
 	const redirectExplorers = useRedirectExplorerOrder();
 
 	return (
-		<section
-			className="flex flex-col items-center justify-center gap-5 px-5 py-12 text-center"
-			style={{
-				background: 'linear-gradient(159deg, #FAF8D2 50.65%, #F7DFD5 86.82%)',
-			}}
-		>
-			<div className="flex items-center gap-1">
-				<Sui className={clsx(hasMatch ? 'h-7.5 w-5' : 'h-11 w-9')} />
-				<SuiLogoTxt className={clsx(hasMatch ? 'h-5 w-7.5' : 'h-7 w-11')} />
+		<div className='relative z-0'>
+			<div className='absolute inset-0 w-full h-full -z-10'>
+				<img className='object-left object-cover h-full w-full' src='/header.webp' alt='header' />
 			</div>
-
-			{hasMatch ? (
-				<div className="flex flex-col gap-2">
-					<Text variant="body/medium">
-						The link that brought you here is no longer available on suiexplorer.com
-					</Text>
-					<div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
-						{redirectExplorers.map((type) => (
-							<HeaderLink key={type} type={type} />
-						))}
-					</div>
+			<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+				<div className='flex items-center justify-center flex-col gap-4 md:gap-6 text-white text-center'>
+					<ScalarWhite />
+					<p className='text-sm sm:text-base'>Dive deep into the Scalar with real-time transaction tracking</p>
 				</div>
-			) : (
-				<Heading variant="heading3/semibold">Choose your preferred explorer on Sui</Heading>
-			)}
-		</section>
+			</div>
+			<section
+				className="flex flex-col items-center justify-center gap-5 px-5 py-12 text-center opacity-0"
+				style={{
+					background: 'linear-gradient(159deg, #FAF8D2 50.65%, #F7DFD5 86.82%)',
+				}}
+			>
+				<div className="flex items-center gap-1">
+					<Sui className={clsx(hasMatch ? 'h-7.5 w-5' : 'h-11 w-9')} />
+					<SuiLogoTxt className={clsx(hasMatch ? 'h-5 w-7.5' : 'h-7 w-11')} />
+				</div>
+
+				{hasMatch ? (
+					<div className="flex flex-col gap-2">
+						<Text variant="body/medium">
+							The link that brought you here is no longer available on suiexplorer.com
+						</Text>
+						<div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
+							{redirectExplorers.map((type) => (
+								<HeaderLink key={type} type={type} />
+							))}
+						</div>
+					</div>
+				) : (
+					<Heading variant="heading3/semibold">Choose your preferred explorer on Sui</Heading>
+				)}
+			</section>
+		</div>
 	);
 }
 

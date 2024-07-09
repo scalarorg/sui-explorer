@@ -10,11 +10,9 @@ import { Link } from '~/ui/Link';
 export function LegalText() {
 	return (
 		<div className="flex justify-center md:justify-start">
-			<Text color="steel-darker" variant="pSubtitleSmall/medium">
-				&copy;
-				{`${new Date().getFullYear()} Mysten Labs. All
-  rights reserved.`}
-			</Text>
+			<div className='text-[#96979C] text-base md:text-lg text-center'>
+				Copyright &copy; <span className='text-[#C5C5C8]'>Scalar</span> | Designed by Scalar
+			</div>
 		</div>
 	);
 }
